@@ -1,0 +1,158 @@
+--> Learn about CDN
+--> crossorigin ?
+-> Package.json is configuration file for npm.
+-> react is a javascript library which is created by facebook developers
+-> we can create our own create-react-app using webpack and all.
+
+==> Bundler : -
+-> Bundler is used to Bundle your applications which will deploy to production
+-> bundler is small 
+-> create-react app uses webpack bundler to deploy code into production
+-> '^2.7.8' => 'major.minor.'
+-> '^' -> caret => (caret is used to upgrade minor version of package)
+-> '~' -> tilde => (tilde is use to upgrade major version of the package) 
+-> package-lock.json is used to store exact version of the packages (dependencies)
+-> Parcel uses babel
+
+===> Transitive dependencies : 
+->  When dependencies of modules 1 is depends on other and other modules have 
+    dependencies of other modules and so on.. is known as transitive dependencies.
+-> dependencies tree 
+
+==> Parcel : -
+    ->  Parcel is a zero configuration build tool for the web. 
+        It combines a great out-of-the-box development experience with a scalable 
+        architecture that can take your project from just getting started to 
+        massive production application.
+    => Things done by parcel
+        -> HMR : hot module replacement (automatically run file when you save file)
+        -> Dev Build
+        -> Provide local server
+        -> Parcel uses file watching algorithm (for HMR):- written in c++
+        -> Gives you faster build because of caching(.parcel-cache kind 
+           of binary file)
+        -> Parcel does image optimization
+        -> Minification of files (Project files)
+        -> Bundling
+        -> Compressing of files
+        -> Parcel is manager (Parcel use all libraries to make react fast)
+        -> Consistent hashing
+        -> Code splitting
+        -> Differentials bundling (to support older browser (diff. bundle for diff browser))
+        -> Error handling
+        -> Diagnostic
+        -> Host app on Https 
+        -> Tree Shaking (remove unused code for you)
+        -> Create different dev and prod bundle
+        -> npx parcel build index.html (building production build)
+        -> Gives you only three files .js,.html and .css
+        -> .parcel-cache and dist can be automatically generated
+        -> Till lesson 2 we're created our own create react app
+        -> not only react is making your faster , webpack are making your 
+           app fast.
+
+-> Build Application using Parcel:
+    -> npx parcel source_file
+    -> it creates dist file
+    -> .parcel-cache
+    -> npx means execute any package
+    -> there are two kinds of dependencies in package.json 
+        1) devDependencies (used only for develop and testing purpose not for production)
+        2) dependencies (normal dependencies)
+    "scripts": {
+            "test": "echo \"Error: no test specified\" && exit 1",
+            "start":"parcel index.html",// for dev 
+            "build":"parcel build index.html" // for prod
+        }
+    -> npm start === npm run start
+    -> never run "npm build" instead run "npm run build" 
+
+===> React Element:-
+    -> ReactElement ==> Javascript Object ==> Html Element (when it is rendered)
+    -> ReactElement is javascript Object
+    -> JSX ==> ReactElement ==> Javascript Object ==> Html Element (when it is rendered)
+
+===> React vs ReactDOM :-
+-> React is used to create elements 
+-> ReactDOM is used to display React elements into browser
+-> JSX is way of writing javascript element
+-> JSX is not HTML inside javascript
+-> JSX is like HTML syntax  
+--> const heading = React.createElement('h1',{id:"heading"},"Hello World");
+    -> Element using react
+--> const jsxHeading = <h1>Hello World</h1> (Element using jsx)
+    -> above two lines are equivalent
+    -> jsx is not pure javascript because browser and machine cannot understand this.
+    -> jsx before going to browser (babel) webpack transpile the code so that browser can understand. 
+
+==> Babel
+-> Babel is open source javascript compiler
+-> Babel transpile the newer javascript code to older JS code so that 
+   older browser can understand that.
+-> Learn more about babel
+
+===> JSX :-
+    -> const h1 = <h1>Hello World</h1> // Valid jsx
+    -> const h1 = <h1>
+                    Hello World 
+                  </h1> // Invalid JSX
+    -> const h1 = (<h1>
+                    Hello World 
+                  </h1>) // Valid JSX
+    -> JSX is take care of injections attacks
+    -> JSX also sanitized the data and prevent cross site scripting
+
+===> Components : -
+-> Everything in react is a component.
+-> e.g. button , card ...etc
+    1) Class based Components (old way of writing code )
+    2) Functional Components (New way of writing code)
+-> Functional component is normal js function which return some jsx
+->  const HeadingComponent = ()=>{
+        return (<h1>Functional Components</h1>)
+    } // this is a react component
+-> const HeadingComponent = () => <h1>Functional Components</h1>
+-> this is how we render Components
+    <HeadingComponent />;
+    {HeadingComponent()};
+    <HeadingComponent></HeadingComponent>;
+-> components composition is components inside another components and so on.
+-> write components in Capital latter.
+
+===> Props :-
+    -> Short form of properties
+    -> props are just arguments to a function
+    -> const fun = ({name,age,email}) => { 
+            // parameter destructuring is know as destructuring on fly.
+        }
+
+===> Config driven UI :-
+    ->  on same website when we change UI depends on the locations or something
+        else is know as config driven UI. UI will changed based on requirements
+    -> config comes from backend .
+    -> We have control on UI.
+    -> React say that never uses index as key. never never never.
+
+===> React Hooks:-
+-> Hooks are normal util javascript functions which do some special works
+-> these are most useful react hooks.
+-> useState() :- used to update UI based on state of the variable.
+    -> whenever a state variable is updates react re-rendered the component.
+    -> React only good at DOM manipulation.
+-> useEffect()  :-
+
+
+===> Notes:
+-> there is two way to export module.
+    -> default export (export default anything) to import anything
+    -> named export (export const data=[1,2]) to import use {data}
+->  React is fast in DOM manipulation and this is the exact issue react is
+    solving. This is why we use react. and all other trying to solving this issue.
+-> Actual DOM :- <h1>Actual dom</h1>,<img> ...etc
+-> Virtual DOM :- Representation of actual DOM.
+    -> Virtual DOM is react-element and it will print javascript object.
+->  Diff algorithm find out the diff between virtual DOM (Old and new Virtual DOM) 
+    and then it will render the objects. this whole process is known as reconciliation or react fiber.
+-> finding out difference between two html element is slow but between javascript object is fast.
+    this where the react become fast.
+-> React keeps track of all node (react elements)

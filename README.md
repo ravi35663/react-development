@@ -1,1 +1,1 @@
-# react-development
+# namastey-react
