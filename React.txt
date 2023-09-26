@@ -139,8 +139,17 @@
 -> useState() :- used to update UI based on state of the variable.
     -> whenever a state variable is updates react re-rendered the component.
     -> React only good at DOM manipulation.
--> useEffect()  :-
+--> useEffect()  :-
+-> useEffect take two argument 
+    -> useEffect(()=>{},[]) // this callback called after your component is rendered.
+    -> callback function
+    -> dependencies array
 
+===> Shimmer UI:-
+-> showing fake ui of any particular component which is similar to actual component without any data.
+-> We use shimmer UI to show the symmetrical thing that user is going to experience.
+-> We make fake impression (good impression ) on people.
+-> 
 
 ===> Notes:
 -> there is two way to export module.
@@ -156,3 +165,39 @@
 -> finding out difference between two html element is slow but between javascript object is fast.
     this where the react become fast.
 -> React keeps track of all node (react elements)
+->  Always use something to render first then fetch API so that your page does not look 
+    frozen. (e.g. use loader). we use this for better user experience.
+-> useEffect solving the above issue.
+-> In react always first page is rendered then any special function is called (hooks).
+-> fetch is given by the browser.
+-> fetch always return a promise.
+-> when promise is resolved then fetch gives you readable stream.
+-> you have to parse the stream into json to get actual response/data.
+->  if origin is mismatch then browser blocking the API call.Because it is not from the 
+    given origin by backend.
+-> you can bypass the CORS error by using chrome extension.
+-> Optional chaining: person?.data?.name 
+-> Render something based on some condition is known as conditional rendering.
+    for instance: loading loader if data is not fetched.
+-> we use state variable for two purpose
+    1) to store data locally
+    2) to re-render the component.
+->  if state of any component is changed then that particular component re-render and only that
+    particular element is changed .
+-> const [name,setName] = useState('ravi')
+    -> if name is constant then how its value getting updated?
+    ->  Because after re-render of component (by setName method) name is created again and 
+        with new value.and now the 'name' state variable is new variable. 
+    ->  we have saw most of the time, after updating state variable, we won't see actual 
+        changes in state variable.This is happens because the component is not re-rendered and
+        for that time period state variable has older value.
+            '   
+                setName(name)
+                name // this will show older value because component is not rendered and 'name' 
+                variable value does not changed.
+
+            '
+-> Always remember:-whenever a local state variable is changing, react re-render that component.
+                    and change the element for which this was rendered. or react triggers 
+                    reconciliation cycle. 
+-> Don't code fast, code slow (always understand why you are doing  and what you are doing)
