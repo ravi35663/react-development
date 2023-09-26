@@ -195,7 +195,6 @@
                 setName(name)
                 name // this will show older value because component is not rendered and 'name' 
                 variable value does not changed.
-
             '
 -> Always remember:-whenever a local state variable is changing, react re-render that component.
                     and change the element for which this was rendered. or react triggers 
